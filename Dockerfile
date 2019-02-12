@@ -1,7 +1,7 @@
 FROM bitnami/phabricator
 
 
-RUN install_packages openssh-server \
+RUN install_packages openssh-server python-pygments \
     && useradd -b /home -d /home/git -m git \
     && echo 'git ALL=(git) SETENV: NOPASSWD: /opt/bitnami/git/bin/git-upload-pack, /opt/bitnami/git/bin/git-receive-pack' >>/etc/sudoers \
     && sed -i 's/git:!:/git:NP:/' /etc/shadow \
